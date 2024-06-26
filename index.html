@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya Teja</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header styles */
+        header {
+            width: 100%;
+            background-color: #1e1e1e;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header .highlight {
+            color: #ff0000;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            padding: 10px;
+        }
+
+        header nav ul li a:hover {
+            color: #ff0000;
+        }
+
+        /* Keyframes for animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes grow {
+            from { transform: scale(0.95); }
+            to { transform: scale(1); }
+        }
+
+        /* Section styles */
+        section {
+            width: 100%;
+            padding: 60px 0;
+            background-color: #1e1e1e;
+            padding-top: 100px; 
+            margin-top: -60px; 
+        }
+
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .section-heading {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading h2 {
+            font-size: 32px;
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .section-heading h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #ff0000;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1 1 40%;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .about-img img {
+            border-radius: 50%;
+            width: 360px;
+            height: 360px;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-text {
+            flex: 1 1 50%;
+            padding: 20px;
+        }
+
+        .about-text h1 {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        /* Education section */
+        .education-list {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .education-item {
+            flex: 1 0 calc(33.33% - 20px);
+            background-color: #2e2e2e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .education-logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .education-info h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .education-info p {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 0;
+        }
+
+        /* Certifications section */
+        .certification-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+         /* Responsive styles */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .education-item, .certification-card, .skills-item {
+                flex: 0 0 100%;
+            }
+
+            .project {
+                margin-bottom: 20px;
+            }
+
+            .section-heading h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .skills-list, .education-list, .certification-list {
+                flex-direction: column;
+            }
+
+            .skills-item, .education-item, .certification-card {
+                flex: 0 0 100%;
+            }
+        }
+        .certification-card {
+            flex: 0 0 calc(33.33% - 20px);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .certification-card img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        /* Projects section */
+        .project {
+            background-color: #2e2e2e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .project h3 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            font-size: 16px;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .project-links a {
+            color: #ff0000;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            padding: 5px 10px;
+        }
+
+        .project-links a:hover {
+            color: #e60000;
+        }
+        #skills {
+    padding: 60px 0;
+    background-color: #1e1e1e;
+}
+
+#skills .section-heading {
+    margin-bottom: 40px;
+}
+
+#skills .skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#skills .skill {
+    flex: 1 1 35%;
+    background-color: #2e2e2e;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    position: relative;
+}
+
+#skills .skill h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+   
+}
+
+#skills .progress-bar {
+    background-color: #2e2e2e;
+   
+    overflow: hidden;
+    height: 5px;
+
+   
+}
+
+#skills .progress {
+    height: 100%;
+    opacity: 0;
+    background-color: #e60000;
+    border-radius: 5px;
+    transition: width 0.6s ease;
+    width: 0;
+    
+}
+
+#skills .skill:hover .progress {
+   opacity: 1;
+    width: 90%; 
+}
+
+#skills .skills-wrapper:hover .skill {
+    filter: blur(3px);
+}
+
+#skills .skills-wrapper .skill:hover {
+    filter: none;
+}
+
+@media (max-width: 768px) {
+    #skills .skill {
+        flex: 1 1 100%;
+    }
+}
+
+#skills .skill-icon {
+    font-size: 24px;
+    color: #e60000; /* Icon color */
+    margin-bottom: 10px;
+}
+
+
+        /* Footer styles */
+        footer {
+            width: 100%;
+            padding: 20px 0;
+            background-color: #1e1e1e;
+            text-align: center;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        footer p a {
+            color: #ff0000;
+            text-decoration: none;
+        }
+
+        footer p a:hover {
+            color: #e60000;
+        }
+        .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff0000;
+        }
+
+        .my-cv {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .my-cv a {
+        display: inline-block;
+        background-color: #e60000;
+        color: white;
+        font-size: 20px;
+        font-style:oblique;
+        padding: 5px 20px; 
+        text-decoration: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; 
+    }
+
+    .my-cv a:hover {
+        background-color: #ccc;
+        color: #1e1e1e;
+        transform: translateY(-3px); 
+    }
+        
+/* Contact section */
+#contact {
+    padding: 60px 0;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+#contact .section-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#contact .form-group {
+    margin-bottom: 20px;
+}
+
+#contact .form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+#contact .form-group input,
+#contact .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#contact .form-group textarea {
+    height: 150px;
+    resize: none;
+}
+
+#contact button {
+    display: block;
+    width: 100%;
+    background-color: #e60000;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+}
+
+#contact button:hover {
+    background-color: #ccc;
+    color: #1e1e1e;
+    transform: translateY(-3px);
+}
+
+#form-response {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #ff0000;
+}
+
+
+/* Typing effect */
+#typing-text {
+    font-size: 2em;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid #e60000;
+    width: 55%;
+    animation: typing 3.5s steps(18, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 50%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    40% { border-color:#e60000; }
+}
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1e1e1e;
+    color:#e60000;
+    border: none;
+    border-radius: 50%; /* Make it circular */
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0px 8px 9px rgba(123, 122, 122, 0.2); /* Optional: Add shadow for depth */
+}
+
+#scrollToTopBtn svg {
+    width: 30px;
+    height: 29px;
+    margin-top: 8px; /* Adjust position of the arrow inside the circle */
+}
+
+#scrollToTopBtn:hover {
+    background-color: #444444;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Surya <span class="highlight">Teja</span></h1>
+            <nav>
+                <ul>
+                    <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                    <li><a href="#skills"><i class="fas fa-laptop-code"></i> Skills</a></li>
+                    <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-heading">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://i.postimg.cc/ZKTzgBMX/photo-2024-06-20-20-13-56.jpg" alt="Profile Picture">
+                </div>
+                <div class="about-text">
+                    <h1 id="typing-text"></h1>
+                    <p>Aspiring computer science professional with a robust academic background and hands-on experience in full-stack development, focusing on Cloud and Edge Computing. Eager to leverage programming and web development skills to contribute to innovative projects and solutions. Passionate about continuous learning and growth in the tech industry.</p>
+                    <br>
+                    <div class="my-cv">
+                        <center><a href="my-cv.pdf" download>Download CV</a></center>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <div class="section-heading">
+                <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+            </div>
+            <div class="education-list">
+               <div class="education-item">
+                    <img src="https://i.postimg.cc/52j6FB2h/Kl-University-04.jpg" alt="KL University Logo" class="education-logo">
+                    <div class="education-info">
+                        <h3>Bachelor's in Computer Science</h3>
+                        <p>KL University</p>
+                        <p>Sep 2021 -- Ongoing</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2gPbigzSzVU4nbngfOwhMPUXfKdx6HLXbug&s" alt="Sri Bhavishya Junior College Logo" class="education-logo">
+                    <div class="education-info">
+                        <h3>Intermediate in MPC</h3>
+                        <p>Sri Bhavishya Junior College</p>
+                        <p>June 2019 -- May 2021</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf4MB2t9U4Z2JKig_K9zfOzOjMSnvF_qPizQ&s" alt="V. S. St. John's Higher Secondary School Logo" class="education-logo">
+                    <div class="education-info">
+                        <h3>CBSE (10th)</h3>
+                        <p>V. S. St. John's Higher Secondary School</p>
+                        <p>June 2018 -- May 2019</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-heading">
+                <h2><i class="fas fa-tools"></i> Skills</h2>
+            </div>
+            <div class="skills-wrapper">
+                <div class="skill" data-percentage="90">
+                    
+                    <h3><div class="skill-icon"><i class="fab fa-html5"></i></div> HTML</h3>
+                    <div class="progress-bar">
+                        <div class="progress" data-percentage="90"></div>
+                    </div>
+                </div>
+                <div class="skill" data-percentage="85">
+                    
+                    <h3><div class="skill-icon"><i class="fab fa-css3-alt"></i></div> CSS</h3>
+                    <div class="progress-bar">
+                        <div class="progress" data-percentage="85"></div>
+                    </div>
+                </div>
+                <div class="skill" data-percentage="75">
+                    
+                    <h3><div class="skill-icon"><i class="fab fa-js-square"></i></div> JavaScript</h3>
+                    <div class="progress-bar">
+                        <div class="progress" data-percentage="75"></div>
+                    </div>
+                </div>
+                <div class="skill" data-percentage="70">
+                   
+                    <h3> <div class="skill-icon"><i class="fab fa-react"></i></div> React</h3>
+                    <div class="progress-bar">
+                        <div class="progress" data-percentage="80"></div>
+                    </div>
+                </div>
+                <div class="skill" data-percentage="80">
+                   
+                    <h3> <div class="skill-icon"><i class="fab fa-python"></i></div> Python</h3>
+                    <div class="progress-bar">
+                        <div class="progress" data-percentage="65"></div>
+                    </div>
+                </div>
+                <div class="skill" data-percentage="85">
+                   
+                    <h3> <div class="skill-icon"><i class="fab fa-java"></i></div> Java</h3>
+                    <div class="progress-bar">
+                        <div class="progress" data-percentage="80"></div>
+                    </div>
+                </div>
+                <div class="skill" data-percentage="90">
+                    
+                    <h3><div class="skill-icon"><i class="fa-solid fa-leaf"></i></div></i>Spring Boot</h3>
+                    <div class="progress-bar">
+                        <div class="progress" data-percentage="75"></div>
+                    </div>
+                </div>
+                <div class="skill" data-percentage="85">
+                    
+                    <h3><div class="skill-icon"><i class="fas fa-database"></i></div> MySQL</h3>
+                    <div class="progress-bar">
+                        <div class="progress" data-percentage="85"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+        
+    </section>
+    
+    
+    <section id="certifications">
+        <div class="container">
+            <div class="section-heading">
+                <h2><i class="fa-solid fa-certificate"></i> Certifications</h2>
+            </div>
+            <div class="certification-list">
+                <div class="certification-card" onclick="window.open('https://www.credly.com/badges/ff9ccfc5-9906-446f-8198-64513790080f/public_url', '_blank')">
+                    <img src="https://i.postimg.cc/5tv6NfsT/associate-cloud-engineer-certification-1.png" alt="Certification 1">
+                </div>
+                <div class="certification-card" onclick="window.open('https://www.credly.com/badges/c4d5ab40-eafb-487e-a884-374637fadae7/public_url', '_blank')">
+                    <img src="https://i.postimg.cc/L6HCtXfk/red-hat-certified-enterprise-application-developer-1.png" alt="Certification 2">
+                </div>
+                <div class="certification-card" onclick="window.open('https://www.credly.com/badges/93b3c259-4737-46d9-b356-5a97b5f8a8c6/public_url', '_blank')">
+                    <img src="https://i.postimg.cc/W3G8rL1f/aws-certified-cloud-practitioner-1.png" alt="Certification 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-heading">
+                <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+            </div>
+            <div class="projects-wrapper">
+                <div class="project">
+                    <div class="project-name">
+                        <h3>E-commerce Management System</h3>
+                    </div>
+                    <div class="project-details">
+                        <p>Developed a system using JSP, JDBC, and MySQL Database. Created functionalities for product listing, shopping cart, and order processing.</p>
+                        <div class="project-links">
+                            <i class="fa-solid fa-code"></i><a href="https://github.com/suryatej007">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-name">
+                        <h3>Banking and Finance System</h3>
+                    </div>
+                    <div class="project-details">
+                        <p>Built a system using React, Node.js, and MongoDB, hosted on Netlify. Designed features for user account management and transactions.</p>
+                        <div class="project-links">
+                            <i class="fa-solid fa-code"></i><a href="https://github.com/suryatej007/Banking-And-Management-System">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-name">
+                        <h3>Event Management System</h3>
+                    </div>
+                    <div class="project-details">
+                        <p>Developed a user-friendly system using Spring Boot and Microservices with MySQL Database. Implemented functionalities for event creation, registration, and management.</p>
+                        <div class="project-links">
+                            <i class="fa-solid fa-code"></i><a href="https://github.com/suryatej007/Event-Management-System-Spring-Boot-">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-name">
+                        <h3>Leave Approval System</h3>
+                    </div>
+                    <div class="project-details">
+                        <p>Utilized AWS Lambda, Amazon SES, and Amazon API Gateway for backend processing. Leveraged Amazon S3 and Amazon DynamoDB for static web content hosting and NoSQL database management respectively.</p>
+                        <div class="project-links">
+                            <i class="fa-solid fa-code"></i><a href="https://github.com/suryatej007/leave-management-system">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-heading">
+                <h2><i class="fas fa-envelope"></i> Contact</h2>
+            </div>
+            <form id="contact-form" name="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <center><button type="submit">Submit</button></center>
+            </form>
+            <center><span id="msg"></span></center>
+        </div>
+    </section>
+    
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Surya Teja. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/dasarisuryateja/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/suryatej007"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Typing effect
+            const text = "Hi, I'm Surya Teja";
+            let i = 0;
+            const speed = 100; // Speed of typing effect in milliseconds
+    
+            function typeWriter() {
+                if (i < text.length) {
+                    document.getElementById("typing-text").innerHTML += text.charAt(i);
+                    setTimeout(typeWriter, speed);
+                    i++;
+                }
+            }
+    
+            typeWriter();
+    
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxM7lLBpksejAUkoj3kPG7wPw4iC8Av4UFYfINowsgbBLNuijl2irGclkCCTl9JbRPpsA/exec';
+            const form = document.forms['contact-form'];
+            const msg = document.getElementById("msg");
+    
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+    
+                msg.innerHTML = "Sending message...";
+                msg.style.color = "blue";
+    
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        msg.innerHTML = "Message sent successfully!";
+                        msg.style.color = "green";
+                        setTimeout(() => {
+                            msg.innerHTML = "";
+                        }, 500);
+                        form.reset();
+                    })
+                    .catch(error => {
+                        msg.innerHTML = "Error sending message. Please try again.";
+                        msg.style.color = "red";
+                        console.error('Error!', error.message);
+                    });
+            });
+        });
+
+        document.querySelectorAll('#skills .skill').forEach(skill => {
+    skill.addEventListener('mouseover', () => {
+        const percentage = skill.getAttribute('data-percentage');
+        skill.querySelector('.progress').style.width = percentage + '%';
+    });
+
+    skill.addEventListener('mouseleave', () => {
+        skill.querySelector('.progress').style.width = '0';
+    });
+});
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopBtn").style.display = "block";
+    } else {
+        document.getElementById("scrollToTopBtn").style.display = "none";
+    }
+}
+
+// Smooth scroll to top when the button is clicked
+document.getElementById("scrollToTopBtn").addEventListener("click", function() {
+    scrollToTop(1000); // Duration of 1000ms (1 second)
+});
+
+function scrollToTop(scrollDuration) {
+    const scrollHeight = window.scrollY;
+    const scrollStep = Math.PI / (scrollDuration / 15);
+    const cosParameter = scrollHeight / 2;
+    
+    let scrollCount = 0;
+    let scrollMargin;
+
+    requestAnimationFrame(function step() {
+        if (window.scrollY != 0) {
+            scrollCount = scrollCount + 1;  
+            scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
+            window.scrollTo(0, (scrollHeight - scrollMargin));
+            requestAnimationFrame(step);
+        }
+    });
+}
+
+
+    </script>
+    
+
+</body>
+</html>
