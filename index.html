@@ -27,7 +27,7 @@
         /* Header styles */
         header {
             width: 100%;
-           
+            background-color: #1e1e1e;
             padding: 20px 0;
             position: sticky;
             top: 0;
@@ -53,7 +53,7 @@
         }
 
         header .highlight {
-            color: #ff0000;
+            color:red;
         }
 
         header nav ul {
@@ -120,7 +120,7 @@
             font-size: 32px;
             position: relative;
             display: inline-block;
-            color: #fff;
+            color:linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
             text-transform: uppercase;
             letter-spacing: 1px;
             animation: slideIn 1s ease-in-out;
@@ -128,9 +128,9 @@
 
         .section-heading h2::after {
             content: '';
-            width: 50px;
+            width: 100px;
             height: 3px;
-            background: #ff0000;
+            background:red; /* Gradient colors */
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -154,10 +154,10 @@
 
         .about-img img {
             border-radius: 50%;
-            width: 360px;
-            height: 360px;
-            border: 5px solid #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 380px;
+            height: 370px;
+            
+            box-shadow: 0 30px 250px rgba(0, 0, 0, 0.2);
         }
 
         .about-text {
@@ -266,76 +266,149 @@
         .certification-card {
             flex: 0 0 calc(33.33% - 20px);
             border-radius: 10px;
-            overflow: hidden;
+            overflow: visible;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 20px;
+            margin-bottom: 70px;
         }
 
         .certification-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            
         }
 
         .certification-card img {
             width: 100%;
-            height: auto;
+            height: 100%;
             transition: transform 0.3s ease;
         }
 
-        /* Projects section */
-        .project {
-            background-color: #2e2e2e;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 30px;
-        }
+      /* Add initial state for the project elements */
+.project {
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+}
 
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
+/* Define the animation keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .project h3 {
-            font-size: 24px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
+/* Add initial state for the project elements */
+.project {
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+}
 
-        .project p {
-            font-size: 16px;
-            color: #ccc;
-            line-height: 1.6;
-        }
+/* Define the animation keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
-        .project-links a {
-            color: #ff0000;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s ease;
-            padding: 5px 10px;
-        }
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
-        .project-links a:hover {
-            color: #e60000;
-        }
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleUp {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Add hover effect */
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Other project styles */
+.project h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.project-links a {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+}
+
+.project-links a:hover {
+    color: #e60000;
+}
+
+
         #skills {
     padding: 60px 0;
     background-color: #1e1e1e;
 }
 
-#skills .section-heading {
-    margin-bottom: 40px;
-}
-
+/* Initial state for skills section and skills */
 #skills .skills-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
+.skill {
+    opacity: 0;
+    transform: translateY(50px);
+    position: relative;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.skill.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Define animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adjust other styles as per your design */
 #skills .skill {
     flex: 1 1 35%;
     background-color: #2e2e2e;
@@ -351,16 +424,12 @@
     margin-bottom: 10px;
     color: #fff;
     text-align: center;
-   
 }
 
 #skills .progress-bar {
     background-color: #2e2e2e;
-   
     overflow: hidden;
     height: 5px;
-
-   
 }
 
 #skills .progress {
@@ -370,11 +439,10 @@
     border-radius: 5px;
     transition: width 0.6s ease;
     width: 0;
-    
 }
 
 #skills .skill:hover .progress {
-   opacity: 1;
+    opacity: 1;
     width: 90%; 
 }
 
@@ -451,8 +519,8 @@
     }
 
     .my-cv a:hover {
-        background-color: #ccc;
-        color: #1e1e1e;
+        background: linear-gradient(to right, rgb(0, 0, 0), rgba(255,0,0,1));
+        color: whitesmoke;
         transform: translateY(-3px); 
     }
         
@@ -520,8 +588,8 @@
 }
 
 #contact button:hover {
-    background-color: #ccc;
-    color: #1e1e1e;
+    background: linear-gradient(to right, rgb(0, 0, 0), rgba(255,0,0,1));
+    color:whitesmoke;
     transform: translateY(-3px);
 }
 
@@ -531,15 +599,14 @@
     color: #ff0000;
 }
 
-
-/* Typing effect */
 #typing-text {
-    font-size: 2em;
-    white-space: nowrap;
-    overflow: visible;
+    font-size: 36px;
+    font-weight: bold;
+    background: linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
    
-    width: 55%;
-    animation: typing 3.5s steps(18, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
@@ -578,23 +645,56 @@
 #scrollToTopBtn:hover {
     background-color: #444444;
 }
-/* Default styles for the hamburger menu */
-/* Style for the hamburger menu */
 .hamburger-menu {
     display: none;
     cursor: pointer;
     font-size: 24px;
     padding: 10px;
-   
     border-radius: 5px;
-    color: #fff;
     transition: background-color 0.3s ease;
 }
 
+/* Modern hamburger icon styles */
 .hamburger-menu i {
-    font-size: 24px;
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(to right, black, red); /* Gradient colors */
+    transition: background 0.3s ease;
 }
 
+.hamburger-menu i:before,
+.hamburger-menu i:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, black, red); /* Gradient colors */
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu i:before {
+    top: -10px;
+}
+
+.hamburger-menu i:after {
+    bottom: -10px;
+}
+
+.hamburger-menu.active i {
+    background-color: transparent;
+}
+
+.hamburger-menu.active i:before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.hamburger-menu.active i:after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
 
 /* Styles for the mobile navigation menu */
 .mobile-nav {
@@ -632,48 +732,6 @@
         display: flex;
     }
 }
-/* Modern hamburger icon styles */
-.hamburger-menu i {
-    display: block;
-    position: relative;
-    width: 30px;
-    height: 2px;
-    background-color: #fff;
-    transition: background-color 0.3s ease;
-}
-
-.hamburger-menu i:before,
-.hamburger-menu i:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    transition: all 0.3s ease;
-}
-
-.hamburger-menu i:before {
-    top: -10px;
-}
-
-.hamburger-menu i:after {
-    bottom: -10px;
-}
-
-.hamburger-menu.active i {
-    background-color: transparent;
-}
-
-.hamburger-menu.active i:before {
-    top: 0;
-    transform: rotate(45deg);
-}
-
-.hamburger-menu.active i:after {
-    bottom: 0;
-    transform: rotate(-45deg);
-}
-
 
 
     </style>
@@ -687,9 +745,7 @@
 <div class="hamburger-menu">
     <i class="fas fa-bars"></i>
 </div>
-
 <br>
-
 <nav>
     <ul>
         <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
@@ -698,7 +754,6 @@
         <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
     </ul>
 </nav>
-
 
 <nav class="mobile-nav">
     <ul>
@@ -962,7 +1017,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Typing effect
-            const text = "Hi, I'm Surya Teja";
+            const text = "Hi, I'm Surya Teja ";
             let i = 0;
             const speed = 100; // Speed of typing effect in milliseconds
     
@@ -1056,6 +1111,48 @@ const hamburgerMenu = document.querySelector('.hamburger-menu');
         mobileNav.classList.toggle('active');
         hamburgerMenu.classList.toggle('active');
     });
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const projects = document.querySelectorAll('.project');
+    const animations = ['fadeInUp', 'slideInLeft', 'slideInRight', 'scaleUp'];
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const animation = animations[Math.floor(Math.random() * animations.length)];
+                entry.target.style.animation = `${animation} 0.6s ease forwards`;
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    projects.forEach(project => {
+        observer.observe(project);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const skills = document.querySelectorAll('.skill');
+    const animations = ['fadeInUp', 'slideInLeft', 'slideInRight', 'scaleUp'];
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const animation = animations[Math.floor(Math.random() * animations.length)];
+                entry.target.style.animation = `${animation} 0.6s ease forwards`;
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    skills.forEach(skill => {
+        observer.observe(skill);
+    });
+});
+
+
     </script>
     
 
